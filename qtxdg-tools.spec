@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBE793007AD22DF7E (tsujan2000@gmail.com)
 #
 Name     : qtxdg-tools
-Version  : 3.9.1
-Release  : 1
-URL      : https://github.com/lxqt/qtxdg-tools/releases/download/3.9.1/qtxdg-tools-3.9.1.tar.xz
-Source0  : https://github.com/lxqt/qtxdg-tools/releases/download/3.9.1/qtxdg-tools-3.9.1.tar.xz
-Source1  : https://github.com/lxqt/qtxdg-tools/releases/download/3.9.1/qtxdg-tools-3.9.1.tar.xz.asc
+Version  : 3.10.0
+Release  : 2
+URL      : https://github.com/lxqt/qtxdg-tools/releases/download/3.10.0/qtxdg-tools-3.10.0.tar.xz
+Source0  : https://github.com/lxqt/qtxdg-tools/releases/download/3.10.0/qtxdg-tools-3.10.0.tar.xz
+Source1  : https://github.com/lxqt/qtxdg-tools/releases/download/3.10.0/qtxdg-tools-3.10.0.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -55,15 +55,15 @@ license components for the qtxdg-tools package.
 
 
 %prep
-%setup -q -n qtxdg-tools-3.9.1
-cd %{_builddir}/qtxdg-tools-3.9.1
+%setup -q -n qtxdg-tools-3.10.0
+cd %{_builddir}/qtxdg-tools-3.10.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1652280555
+export SOURCE_DATE_EPOCH=1667849226
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -79,10 +79,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1652280555
+export SOURCE_DATE_EPOCH=1667849226
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/qtxdg-tools
-cp %{_builddir}/qtxdg-tools-3.9.1/LICENSE %{buildroot}/usr/share/package-licenses/qtxdg-tools/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/qtxdg-tools-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/qtxdg-tools/01a6b4bf79aca9b556822601186afab86e8c4fbf || :
 pushd clr-build
 %make_install
 popd
